@@ -11,6 +11,14 @@ static char name[50];
 static char address[100];
 static long contact_no;
 
-Director d;
+Director director;
+Patient patient[1000];
+Pharmacy pharmacy;
+Receptionist receptionist;
+Doctor doctor[100];
+Nurse nurse[500];
+Cleaning_staff cleaning_staff[500];
+Lab lab;
+
 
 };
