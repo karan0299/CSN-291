@@ -1,41 +1,51 @@
-class Doctor::public Staff
+#include"Staff.h"
+class Doctor:public Staff
 {
-	private:
+	
 		bool resident; //ask radhu
-		char speciality[];
-
+		string speciality;
+	public:
 		Doctor();
-		void write_diagnosis();
-		void nurse_info();
-		void patient_info();
-		void login();
+		void write_diagnosis()
+		{
+
+		}
+		void nurse_info()
+		{
+
+		}
+		void patient_info()
+		{
+
+		}
+		void login()
+		{
+
+		}
+		string getSpeciality(){ return speciality;}
+	
+	
 };
-void Doctor::write_diagnosis();
-{}
-void Doctor::nurse_info();
-{}
-void Doctor::patient_info();
-{}
-void Doctor::login();
-{}
 
 
-class Nurse::public Staff
+class Nurse:public Staff
 {
-	Nurse();
-	void patient_info();
+	Nurse()
+	{
+
+	}
+	void patient_info()
+	{
+
+	}
 };
-Nurse::Nurse()
-{}
-void Nurse::patient_info()
-{}
 
 
-class Cleaning_staff::public Staff {
-    private:
-        string shift;
-    public:
-        Cleaning_staff();
-}
-Cleaning_staff::Cleaning_staff()
-{}
+class Cleaning_staff:public Staff 
+{
+     public:
+	 Cleaning_staff()
+		{
+
+		}
+};
