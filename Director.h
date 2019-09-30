@@ -50,6 +50,7 @@ class Director:public Administration
 			static char address[100];
 			static long contact_number;
 			static char speciality[50];
+			static char shift[20];
 			cout<<"Enter Name:"<<endl;
 			cin>>name;
 			cout<<"Enter Gender:"<<endl;
@@ -68,17 +69,20 @@ class Director:public Administration
 				case 1:
 				cout<<"Enter Speciality:"<<endl;
 				cin>>speciality;
-				T[id].setDoctorInfo();
+				T[id].setSpeciality(speciality);
+				T[id].setInfo(name,gender,date_of_birth,address,contact_number,id,salary);
 				break;
 				case 2:
-				T[id].setNurseInfo();
+				T[id].setInfo(name,gender,date_of_birth,address,contact_number,id,salary);
 				break;
 				case 3:
-				T[id].setCleaning_Staff();
+				cout<<"Enter Shift "<<endl;
+				cin>>shift;
+				T[id].setInfo(name,gender,date_of_birth,address,contact_number,id,salary);
+				T[id].setInfo();
 				break;
 				default();
 			}
-
 
 		}
 };
