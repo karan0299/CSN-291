@@ -6,9 +6,30 @@ class Doctor:public Staff
 		string speciality;
 	public:
 		Doctor();
-		void write_diagnosis()
+		void write_diagnosis(Patient P[],int Id)
 		{
-
+			string Description;
+			cout<<"Enter Description :"<<endl
+			cin>>Description;
+			int n;
+			cout<<"Enter no of Tests :"<<endl;
+			cin>>n;
+			cout<<"Enter Tests :"<<endl;
+			string Tests[n];
+			for(int i=0i<n;i++){
+				cin>>Tests[i];
+			}
+			cout<<"Enter no of Medicines :"<<endl;
+			cin>>n;
+			cout<<"Enter Medicines :"<<endl;
+			string Medicines[n];
+			for(int i=0i<n;i++){
+				cin>>Medicines[i];
+			}
+			double fees;
+			cout<<"enter Fees : ";
+			cin<<fees;
+			P[Id].addDiagnosis(id,Description,Tests,Medicines,fees);
 		}
 		void nurse_info()
 		{
