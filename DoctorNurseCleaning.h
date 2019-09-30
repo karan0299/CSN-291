@@ -2,7 +2,7 @@
 class Doctor:public Staff
 {
 	
-		bool resident; //ask radhu
+	
 		string speciality;
 		string password;
 		bool isLoggedIn;
@@ -19,7 +19,28 @@ class Doctor:public Staff
 	}
 		void write_diagnosis()
 		{
-
+			string Description;
+			cout<<"Enter Description :"<<endl
+			cin>>Description;
+			int n;
+			cout<<"Enter no of Tests :"<<endl;
+			cin>>n;
+			cout<<"Enter Tests :"<<endl;
+			string *Tests=new string[n];
+			for(int i=0;i<n;i++){
+				cin>>Tests[i];
+			}
+			cout<<"Enter no of Medicines :"<<endl;
+			cin>>n;
+			cout<<"Enter Medicines :"<<endl;
+			string Medicines[n];
+			for(int i=0i<n;i++){
+				cin>>Medicines[i];
+			}
+			double fees;
+			cout<<"enter Fees : ";
+			cin<<fees;
+			P[Id].addDiagnosis(id,Description,Tests,Medicines,fees);
 		}
 		void patient_info(Patient P[],int id)
 	{
