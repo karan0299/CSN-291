@@ -1,14 +1,17 @@
+#include<string.h>
 class Administration
 {
-	private:
-		char name[];
-		Gender gender;
-		DateTimeField date_of_birth;
-		char address[];
-		int contact_number;
-
-		Administration();
-		void login();
+	
+		char name[30];
+		char gender[10];
+		char date_of_birth[10];
+		char address[100];
+		long contact_number;
+	public:
+		Administration()
+		{}
+		Administration(char Name[],char Gender[],char Date_of_birth[],char Address[],long Contact_number);	
+		// void login();
 		void patient_info();
 		void doctor_info();
 		void nurse_info();
@@ -17,10 +20,23 @@ class Administration
 		void lab_info();
 		void cash_collection();
 };
-void Administration::Administration()
-{}
- void Administration::login()
- {}
+Administration::Administration()
+{	name[0]='\0';
+			gender[0]='\0';
+			date_of_birth[0]='\0';
+			address[0]='\0';
+		contact_number=0;
+}
+Administration::Administration(char Name[],char Gender[],char Date_of_birth[],char Address[],long Contact_number)
+		{
+			strcpy(name,Name);
+			strcpy(gender,Gender);
+			strcpy(date_of_birth,Date_of_birth);
+			strcpy(address,Address);
+			contact_number=Contact_number;
+		}
+//  void Administration::login()
+//  {}
  void Administration::patient_info()
  {}
  void Administration::doctor_info()
