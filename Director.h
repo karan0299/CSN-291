@@ -79,7 +79,7 @@ class Director:public Administration
 				cout<<"Enter Shift "<<endl;
 				cin>>shift;
 				T[id].setInfo(name,gender,date_of_birth,address,contact_number,id,salary);
-				T[id].setInfo();
+				T[id].setShift(shift);
 				break;
 				default();
 			}

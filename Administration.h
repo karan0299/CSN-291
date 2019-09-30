@@ -89,6 +89,8 @@ class Administration
 		cout<<endl;
 		cout<<"Salary:"<<C[id].getSalary();
 		cout<<endl;
+		cout<<"Shift:"<<C[id].getShift();
+		cout<<endl;
 		}
 		void pharmacy_info(Pharmacy P)
 		{
@@ -124,10 +126,10 @@ class Administration
 		}
 };
 Administration::Administration()
-{	name[0]='\0';
-			gender[0]='\0';
-			date_of_birth[0]='\0';
-			address[0]='\0';
+{		strcpy(name,"");
+			strcpy(gender,"");
+			strcpy(date_of_birth,"");
+			strcpy(address,"");
 		contact_number=0;
 }
 Administration::Administration(char Name[],char Gender[],char Date_of_birth[],char Address[],long Contact_number)
