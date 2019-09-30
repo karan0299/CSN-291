@@ -13,13 +13,11 @@ class Director:public Administration
 	public:
 		Director():Administration()
 	{
-		strcpy(post,"");
 		strcpy(password,"");
 		isLoggedIn=false;
 	}
-		Director(char Name[],char Gender[],char Date_of_birth[],char Address[],long Contact_number,char Post[],char Password[]):Administration(Name,Gender,Date_of_birth,Address,Contact_number)
+		Director(char Name[],char Gender[],char Date_of_birth[],char Address[],long Contact_number,char Password[]):Administration(Name,Gender,Date_of_birth,Address,Contact_number)
 	{
-		strcpy(post,Post);
 		strcpy(password,Password);
 		isLoggedIn=false;
 	}
@@ -30,95 +28,7 @@ class Director:public Administration
 				isLoggedIn=true;
 			}
 	}
-	void patient_info(Patient P[],int id)
-	{
-		cout<<"Name:"<<P[id].getName();
-		cout<<endl;
-		cout<<"Gender:"<<P[id].getGender();
-		cout<<endl;
-		cout<<"Date of birth"<<P[id].getDate_of_birth();
-		cout<<endl;
-		cout<<"Address:"<<P[id].getAddress();
-		cout<<endl;
-		cout<<"Contact Number:"<<P[id].getContact_number();
-		cout<<endl;
-		cout<<"Blood group:"<<P[id].getBlood_group();
-		cout<<endl;
-		cout<<"Id"<<P[id].getId();
-		cout<<endl;
-		P[id].viewDiagnosis();
-		cout<<endl;
-		
 
-	}
-	void doctor_info(Doctor D[],int id)
-		{
-		cout<<"Name:"<<D[id].getName();
-		cout<<endl;
-		cout<<"Gender:"<<D[id].getGender();
-		cout<<endl;
-		cout<<"Date of birth"<<D[id].getDate_of_birth();
-		cout<<endl;
-		cout<<"Address:"<<D[id].getAddress();
-		cout<<endl;
-		cout<<"Contact Number:"<<D[id].getContact_number();
-		cout<<endl;
-		cout<<"Id"<<D[id].getId();
-		cout<<endl;
-		cout<<"Speciality:"<<D[id].getSpeciality();
-		cout<<endl;
-		cout<<"Salary:"<<D[id].getSalary();
-		cout<<endl;
-		}
-	void nurse_info(Nurse N[],int id)
-		{
-		cout<<"Name:"<<N[id].getName();
-		cout<<endl;
-		cout<<"Gender:"<<N[id].getGender();
-		cout<<endl;
-		cout<<"Date of birth"<<N[id].getDate_of_birth();
-		cout<<endl;
-		cout<<"Address:"<<N[id].getAddress();
-		cout<<endl;
-		cout<<"Contact Number:"<<N[id].getContact_number();
-		cout<<endl;
-		cout<<"Id"<<N[id].getId();
-		cout<<endl;
-		cout<<"Salary:"<<N[id].getSalary();
-		cout<<endl;
-		}
-		void cleaning_staff_info(Cleaning_staff C[],int id)
-		{
-		cout<<"Name:"<<C[id].getName();
-		cout<<endl;
-		cout<<"Gender:"<<C[id].getGender();
-		cout<<endl;
-		cout<<"Date of birth"<<C[id].getDate_of_birth();
-		cout<<endl;
-		cout<<"Address:"<<C[id].getAddress();
-		cout<<endl;
-		cout<<"Contact Number:"<<C[id].getContact_number();
-		cout<<endl;
-		cout<<"Id"<<C[id].getId();
-		cout<<endl;
-		cout<<"Salary:"<<C[id].getSalary();
-		cout<<endl;
-		}
-		void pharmacy_info(Pharmacy P)
-		{
-		cout<<"Pharmacist Name:"<<P.getPharmacist_name();
-		cout<<endl;
-		cout<<"Pharmacist Salary:"<<P.getPharmacist_salary();
-		cout<<endl;
-		}
-		void lab_info(Lab L)
-		{
-		cout<<"Lab assistant Name:"<<L.getLab_assistant_name();
-		cout<<endl;
-		cout<<"Lab assistant Salary:"<<L.getLab_assistant_salary();
-		cout<<endl;
-		}
-		void cash_collection();
 		template<class T>
 		void change_salary(T t,int newSalary)
 		{
@@ -152,19 +62,19 @@ class Director:public Administration
 			cin>>contact_number;
 			cout<<"Enter Salary:"<<endl;
 			cin>>salary;
-			static int id=getID(T);
+			static int id=findID(T);
 			switch(n)
 			{
 				case 1:
 				cout<<"Enter Speciality:"<<endl;
 				cin>>speciality;
-				T.setDoctorInfo();
+				T[id].setDoctorInfo();
 				break;
 				case 2:
-				T.setNurseInfo();
+				T[id].setNurseInfo();
 				break;
 				case 3:
-				T.setCleaning_Staff();
+				T[id].setCleaning_Staff();
 				break;
 				default();
 			}
