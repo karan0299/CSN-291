@@ -1,4 +1,6 @@
 #include"Staff.h"
+#include<iostream>
+using namespace std;
 class Doctor:public Staff
 {
 	
@@ -17,10 +19,10 @@ class Doctor:public Staff
 		password.assign(Password);
 		isLoggedIn=false;
 	}
-		void write_diagnosis()
+		void write_diagnosis(Patient P[],int Id)
 		{
 			string Description;
-			cout<<"Enter Description :"<<endl
+			cout<<"Enter Description :"<<endl;
 			cin>>Description;
 			int n;
 			cout<<"Enter no of Tests :"<<endl;
@@ -33,14 +35,14 @@ class Doctor:public Staff
 			cout<<"Enter no of Medicines :"<<endl;
 			cin>>n;
 			cout<<"Enter Medicines :"<<endl;
-			string Medicines[n];
-			for(int i=0i<n;i++){
+			string *Medicines=new string[n];
+			for(int i=0;i<n;i++){
 				cin>>Medicines[i];
 			}
 			double fees;
 			cout<<"enter Fees : ";
-			cin<<fees;
-			P[Id].addDiagnosis(id,Description,Tests,Medicines,fees);
+			cin>>fees;
+			P[Id].add_Diagnosis(getId(),Description,Tests,Medicines,fees);
 		}
 		void patient_info(Patient P[],int id)
 	{
