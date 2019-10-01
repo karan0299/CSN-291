@@ -1,8 +1,6 @@
 #include<string>
 #include<iostream>
 #include"Administration.h"
-#include"PatientDiagnosis.h"
-#include"DoctorNurseCleaning.h"
 using namespace std;
 class Director:public Administration
 {
@@ -69,17 +67,15 @@ class Director:public Administration
 				case 1:
 				cout<<"Enter Speciality:"<<endl;
 				cin>>speciality;
-				T[id].setSpeciality(speciality);
-				T[id].setInfo(name,gender,date_of_birth,address,contact_number,id,salary);
+				add_doctor(name,gender,date_of_birth,address,contact_number,salary, speciality);
 				break;
 				case 2:
-				T[id].setInfo(name,gender,date_of_birth,address,contact_number,id,salary);
+				add_nurse(name,gender,date_of_birth,address,contact_number,salary);
 				break;
 				case 3:
 				cout<<"Enter Shift "<<endl;
 				cin>>shift;
-				T[id].setInfo(name,gender,date_of_birth,address,contact_number,id,salary);
-				T[id].setShift(shift);
+				add_cleaning_staff(name, gender, date_of_birth, address, contact_number, salary, shift);
 				break;
 				default();
 			}

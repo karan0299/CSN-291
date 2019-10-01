@@ -1,4 +1,6 @@
 #include<string>
+#include <iostream>
+using namespace std;
 class Diagnosis{
     public:
         int doctor_id;
