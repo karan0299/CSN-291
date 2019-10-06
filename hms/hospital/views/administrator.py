@@ -3,6 +3,7 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from hospital.serializers.administrator_serializer import AdministratorSerializer
 from hospital.models.administrator import Administrator
 
+
 class AdministratorViewSet(ModelViewSet):
 
     serializer_class = AdministratorSerializer

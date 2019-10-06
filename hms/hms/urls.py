@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
 from rest_framework.routers import DefaultRouter
+from django.contrib.auth import views as auth_views
 
 from hospital.views.doctor import DoctorViewSet
 from hospital.views.nurse import NurseViewSet
@@ -38,6 +40,8 @@ router.register(r'diagnosis', DiagnosisViewSet, base_name='diagnosis')
 router.register(r'lab', LabViewSet, base_name='lab')
 
 urlpatterns = [
+    url(r'^login/$', auth_views.LoginView.as_view(), name='login'),
+    url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
     path('admin/', admin.site.urls),
 ]
 
