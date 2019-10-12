@@ -4,6 +4,7 @@ from hospital.serializers.diagnosis_serializer import DiagnosisSerializer
 from hospital.models.diagnosis import Diagnosis
 from hospital.permissions.is_doctor import IsDoctor
 from hospital.permissions.is_nurse import IsNurse
+from hospital.permissions.is_receptionist import IsReceptionist
 
 
 class DiagnosisViewSet(ModelViewSet):
@@ -11,7 +12,7 @@ class DiagnosisViewSet(ModelViewSet):
     serializer_class = DiagnosisSerializer
     permission_classes = [IsAuthenticated, ]
     permission_classes_by_action = {
-        'create': [IsDoctor, ],
+        'create': [IsDoctor, IsReceptionist],
         'get': [IsDoctor, IsNurse],
         'put': [IsDoctor, ],
         'delete': [IsDoctor, ]

@@ -5,7 +5,7 @@ from hospital.models.administrator import Administrator
 class IsDirector(permissions.BasePermission):
 
     def has_permission(self, request, view):
-        administrator = Administrator.objects.filter(username=request.user.username)
+        administrator = Administrator.objects.filter(user=request.user)
         if len(administrator) == 0:
             return False
         return administrator[0].role == 1

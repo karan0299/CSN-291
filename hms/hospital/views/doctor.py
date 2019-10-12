@@ -26,11 +26,10 @@ class DoctorViewSet(ModelViewSet):
         except KeyError:
             return [permission() for permission in self.permission_classes]
 
+    def get_queryset(self):
+            """
 
-def get_queryset(self):
-        """
-
-        :return:
-        """
-        doctor = Doctor.objects.all().order_by('speciality')
-        return doctor
+            :return:
+            """
+            doctor = Doctor.objects.all().order_by('speciality')
+            return doctor
