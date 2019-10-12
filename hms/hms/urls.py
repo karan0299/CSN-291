@@ -27,6 +27,7 @@ from hospital.views.medicine import MedicineViewSet
 from hospital.views.administrator import AdministratorViewSet
 from hospital.views.diagnosis import DiagnosisViewSet
 from hospital.views.lab import LabViewSet
+from hospital.views.register import register
 
 router = DefaultRouter()
 
@@ -42,6 +43,7 @@ router.register(r'lab', LabViewSet, base_name='lab')
 urlpatterns = [
     url(r'^login/$', auth_views.LoginView.as_view(), name='login'),
     url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
+    url(r'^register/', register, name='signup'),
     path('admin/', admin.site.urls),
 ]
 
