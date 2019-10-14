@@ -19,4 +19,4 @@ class Patient(models.Model):
     blood_group = models.CharField(
         max_length=3,
     )
-    diagnosis = models.ManyToManyField(Diagnosis, related_name='diagnosis')
+    diagnosis = models.ManyToManyField(Diagnosis, related_name='diagnosis', blank=True)
