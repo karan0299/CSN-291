@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CareMed</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="CareMed demo project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/pharmacy.css">
+</head>
+<body style="  background-image: url(images/login.jpg);">
+    <div class="contact-area">
+        <div class="contact">
+          <main>
+            <section>
+              <div class="content">
+                <img src="images/features_2.jpg" alt="Profile Image">
+      
+                <aside>
+                  <h1>Laboratory</h1>
+                  <p id="assistant" style="font-size:24px ; color:black "></p>
+                </aside>
+                
+                <button>
+                  <span>Tests</span>
+                  
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M14.83 30.83L24 21.66l9.17 9.17L36 28 24 16 12 28z"></path> </g> </svg>
+                </button>
+              </div>
+      
+              <div class="title"><p>Test List :</p></div>
+            </section>
+      
+            
+          </main>
+      
+          <nav>
+                <a href="#" class="gmail">
+                    <div class="content">
+                        <h1>Complete Blood Count</h1>
+                        <span>Price : 100</span>
+                    </div> 
+                    <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path> </g> </svg>
+                </a>
+                <a href="#" class="gmail">
+                        <div class="content">
+                            <h1>Prothrombin Time</h1>
+                            <span>Price : 200</span>
+                        </div> 
+                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path> </g> </svg>
+                </a>
+                <a href="#" class="gmail">
+                        <div class="content">
+                            <h1>Basic Metabolic Panel</h1>
+                            <span>Price : 100</span>
+                        </div> 
+                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path> </g> </svg>
+                </a>
+                <a href="#" class="gmail">
+                        <div class="content">
+                            <h1>Comprehensive Metabolic Panel</h1>
+                            <span>Price : 500</span>
+                        </div> 
+                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path> </g> </svg>
+                </a>
+                <a href="#" class="gmail">
+                        <div class="content">
+                            <h1>Lipid Panel</h1>
+                            <span>Price : 150</span>
+                        </div> 
+                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path> </g> </svg>
+                </a>
+                <a href="#" class="gmail">
+                        <div class="content">
+                            <h1>Liver Panel</h1>
+                            <span>Price : 350</span>
+                        </div> 
+                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M17.17 32.92l9.17-9.17-9.17-9.17L20 11.75l12 12-12 12z"></path> </g> </svg>
+                </a>
+          </nav>
+        </div>
+      </div>
+      <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script> 
+      <script type="text/javascript" src="js/requests.js"></script>
+<script>
+$('button').click(function(){
+  $('button').toggleClass('active');
+  $('.title').toggleClass('active');
+  $('nav').toggleClass('active');
+});
+$( window ).on("load",function() {
+            getLab();
+ });
+</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CareMed</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="CareMed demo project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/diagnosis.css">
+</head>
+
+
+<body style="background-image:url(images/login.jpg)">
+    <header class="header trans_200">
+        
+        <!-- Top Bar -->
+        <div class="top_bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
+                            <!-- <div class="top_bar_item"><a href="#">FAQ</a></div>
+                            <div class="top_bar_item"><a href="#">Request an Appointment</a></div> -->
+                            <div class="emergencies  d-flex flex-row align-items-center justify-content-start ml-auto">For Emergencies: +563 47558 623</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header Content -->
+        <div class="header_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <nav class="main_nav ml-auto">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About us</a></li>
+                                    <li><a href="login.html">Logout</a></li>
+                                </ul>
+                            </nav>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+	<div class="login-page">
+		<div class="form">
+
+    			<form id="pregister-form" class="register-form" action="/signup" method="post">
+                    <select multiple id="medicines" >
+                    </select> 
+                    <input type="text" id="description" placeholder="description" autocomplete="off">
+                    <input type="text" id="test" placeholder="test" autocomplete="off">
+                    <input type="number" id="fees" placeholder="fees" autocomplete="off">
+					<button type="submit">Add Diagnosis</button>
+
+			    </form>
+
+			</form>
+		</div>
+		
+	</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/requests.js"></script>
+<script>
+    $( window ).on("load",function() {
+            getMedicine();
+        });
+
+    $("#pregister-form").on("submit",event => {
+        event.preventDefault();
+        let request = {};
+        let med = $("#pregister-form #medicines").val();
+        var medi=[]
+        med.forEach((element ,i ) => {
+            medi[i]=parseInt(element)
+        });
+        request["medicines"] = medi
+
+        let description = $("#pregister-form #description").val();
+        request["description"] = description
+
+        let test = $("#pregister-form #test").val();
+        request["tests"] = test
+
+        let fees = $("#pregister-form #fees").val();
+        request["fees"] = parseInt(fees)
+
+        request["doctor"] = 2
+
+        console.log(JSON.stringify(request))
+        
+        $.ajax({
+            type: "POST",
+            url: `${URL}/diagnosis/`,
+            crossDomain: true,
+            data: JSON.stringify(request),
+            dataType: 'json',
+            contentType: 'application/json',
+            beforeSend: function (xhr) {
+                /* Authorization header */
+                xhr.setRequestHeader("Authorization", "Basic " + btoa(sessionStorage.getItem("UNAME") +":" + sessionStorage.getItem("PASSWORD")))
+            },
+            success: function(result) {
+                console.log(result)
+                var diagnosis_id = result["id"]
+                var id = sessionStorage.getItem("PATIENTID")
+                let put_request = {};
+                
+                put_request["id"] = id
+                put_request["diagnosis_id"] = diagnosis_id
+
+                $.ajax({
+                    type: "PUT",
+                    url: `${URL}/patient/`+id+'/',
+                    data: JSON.stringify(put_request),
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    crossDomain: true,
+                    beforeSend: function (xhr) {
+                        /* Authorization header */
+                        xhr.setRequestHeader("Authorization", "Basic " + btoa(sessionStorage.getItem("UNAME") +":" + sessionStorage.getItem("PASSWORD")))
+                    },
+                    success: function(result) {
+                        console.log("success")
+                        window.location = 'Doctor.html';
+                    },
+                    error: function(err) {
+                        console.log("Error")
+                        alert(err.responseJSON.error);
+                    }
+                });
+
+            },
+            error: function(err) {
+                console.log("Error")
+                alert(err.responseJSON.error);
+            }
+        });
+    });
+
+
+</script>
+
+</body>
+</html>
